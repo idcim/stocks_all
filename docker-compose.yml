@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: idcims/stocks_all
+    ports:
+      - "8110:8000"
+    environment:
+      - DB_HOST=192.168.3.3
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=gu
+      - DB_PREFIX=api_
+      - TASKS_TABLE=tasks
+      - TASKS_TABLE_RESPONSE=task_responses

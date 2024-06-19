@@ -1,0 +1,6 @@
+aiohttp==3.8.5
+aiomysql==0.2.0
+fastapi==0.111.0
+pydantic==2.7.4
+python-dotenv==1.0.1
+uvicorn==0.15.0

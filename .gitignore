@@ -1,0 +1,9 @@
+# 忽略 Python 编译产生的文件
+*.pyc
+__pycache__/
+
+# 忽略虚拟环境目录
+venv/
+.env
+
+.DS_Store
