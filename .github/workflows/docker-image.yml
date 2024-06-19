@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       # 通过 git 命令获取当前 tag 信息, 存入环境变量 APP_VERSION
-      - name: Generate App Version
+      - name: Generate Version
         run: echo APP_VERSION=`git describe --tags --always` >> $GITHUB_ENV
       # 构建 Docker 并推送到 Docker hub
       - name: Build and push
