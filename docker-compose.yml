@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    image: idcims/stocks_all
+    image: idcims/stocks_all:latest
     ports:
       - "8110:8000"
     environment:

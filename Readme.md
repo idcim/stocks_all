@@ -3,17 +3,20 @@
     image: idcims/stocks_all
 - Docker yml
     docker-compose.yml
-  - ENV
-    >  DB_HOST=localhost
-      DB_USER=root
-      DB_PASSWORD=root
-      DB_NAME=gu
-      DB_PREFIX=api_
-      TASKS_TABLE=tasks
-      TASKS_TABLE_RESPONSE=task_responses
+- ENV
+  ```
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=root
+    DB_NAME=gu
+    DB_PREFIX=api_
+    TASKS_TABLE=tasks
+    TASKS_TABLE_RESPONSE=task_responses
+  ```
 - Database Table
   - api_tasks
-    > CREATE TABLE `api_tasks` (
+    ```SQL
+      CREATE TABLE `api_tasks` (
         `id` int(11) NOT NULL,
         `target_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
         `method` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -28,11 +31,15 @@
         `last_result` text COLLATE utf8_unicode_ci,
         `error_message` text COLLATE utf8_unicode_ci,
         `completed_at` datetime DEFAULT NULL
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+      ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+    ```
+  
   - api_task_responses
-    >CREATE TABLE `api_task_responses` (
+    ```SQL
+      CREATE TABLE `api_task_responses` (
         `id` int(11) NOT NULL,
         `task_id` int(11) NOT NULL,
         `response_data` text COLLATE utf8_unicode_ci NOT NULL,
         `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-      ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+      ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+    ```
