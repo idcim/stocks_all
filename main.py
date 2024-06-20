@@ -33,13 +33,13 @@ async def trigger_task_handler(task_id: int):
 
 
 # 定制任务:全频STOCKS日数据
-@app.get("/stocks_daily", response_model=TaskId)
+@app.get("/stocks_daily")
 async def stocks_get(background_tasks: BackgroundTasks):
     # 添加交易日判断
     trade_day = req(f"http://api.mairui.club/hszbl/fsjy/000001/dh/{env('MR_TOKEN')}")
     day = trade_day[-1]['d']
     today = datetime.now().strftime('%Y-%m-%d')
-    if today is not day:
+    if today != day:
         return HTTPException(status_code=400, detail="This day is not a trade day!")
 
     arr_data = await get_all_stocks()
